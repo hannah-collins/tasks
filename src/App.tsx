@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Button } from "react-bootstrap";
 
 function App(): React.JSX.Element {
     return (
@@ -7,6 +8,22 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 Hannah Collins UD CISC275 with React Hooks and TypeScript
             </header>
+            <header className="App-header">New Second Header :3</header>
+            <img src="../../Downloads/picture.jpeg" alt="Picture of me" />
+            List of some colors:
+            <ul>
+                <li>Yellow</li>
+                <li>Purple</li>
+                <li>Blue</li>
+                <li>Green</li>
+            </ul>
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
             <p>
                 Hello World Edit <code>src/App.tsx</code> and save. This page
                 will automatically reload.
