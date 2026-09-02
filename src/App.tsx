@@ -8,7 +8,9 @@ function App(): React.JSX.Element {
             <h1 className="App-header">
                 Hannah Collins UD CISC275 with React Hooks and TypeScript
             </h1>
-            <h2 className="App-header">New Second Header :3</h2>
+            <h2 className="App-header" style={{ backgroundColor: "red" }}>
+                New Second Header :3
+            </h2>
             <img src="././Downloads/picture.jpg" alt="Picture of me" />
             List of some colors:
             <ul>
