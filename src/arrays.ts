@@ -27,7 +27,7 @@ export function tripleNumbers(numbers: number[]): number[] {
  */
 export function stringsToIntegers(numbers: string[]): number[] {
     const newNumbers = numbers.map((number) =>
-        Number.isNaN(parseInt(number)) ? 0 : parseInt(number),
+        Number.isInteger(parseInt(number)) ? parseInt(number) : 0,
     );
     return newNumbers;
 }
@@ -44,7 +44,7 @@ export const removeDollars = (amounts: string[]): number[] => {
         amount.startsWith("$") ? amount.slice(1) : amount,
     );
     const newNumbers = removeSymbol.map((amount) =>
-        Number.isNaN(parseInt(amount)) ? 0 : parseInt(amount),
+        Number.isInteger(parseInt(amount)) ? parseInt(amount) : 0,
     );
     return newNumbers;
 };
@@ -55,10 +55,10 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    let newMessages = messages.filter((message: string): boolean =>
+    const removeQuestions = messages.filter((message: string): boolean =>
         message.endsWith("?"),
     );
-    newMessages = newMessages.map((newMessage: string): string =>
+    const newMessages = removeQuestions.map((newMessage: string): string =>
         newMessage.endsWith("!") ? newMessage.toUpperCase() : newMessage,
     );
     return newMessages;
