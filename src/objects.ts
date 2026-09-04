@@ -91,9 +91,17 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    return {
+        id: question.id,
+        name: newName,
+        type: question.type,
+        body: question.body,
+        expected: question.excepted,
+        options: question.options,
+        points: question.points,
+        published: question.published,
+    };
 }
-
 /**
  * Return a new version of the given question, except the `published` field
  * should be inverted. If the question was not published, now it should be
@@ -121,7 +129,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    return new q();
 }
 
 /**
