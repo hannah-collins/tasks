@@ -42,7 +42,14 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    if (question.options.length === 0) {
+        return true;
+    } else {
+        const hasAnswer = question.options.filter(
+            (option: string): boolean => option === answer,
+        );
+        return hasAnswer.length > 0;
+    }
 }
 
 /**
