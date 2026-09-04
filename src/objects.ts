@@ -96,7 +96,7 @@ export function renameQuestion(question: Question, newName: string): Question {
         name: newName,
         type: question.type,
         body: question.body,
-        expected: question.excepted,
+        expected: question.expected,
         options: question.options,
         points: question.points,
         published: question.published,
@@ -108,7 +108,16 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    return question;
+    return {
+        id: question.id,
+        name: question.name,
+        type: question.type,
+        body: question.body,
+        expected: question.expected,
+        options: question.options,
+        points: question.points,
+        published: !question.published,
+    };
 }
 
 /**
