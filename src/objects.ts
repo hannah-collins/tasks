@@ -91,16 +91,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return {
-        id: question.id,
-        name: newName,
-        type: question.type,
-        body: question.body,
-        expected: question.expected,
-        options: question.options,
-        points: question.points,
-        published: question.published,
-    };
+    return { ...question, name: newName };
 }
 /**
  * Return a new version of the given question, except the `published` field
@@ -108,16 +99,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    return {
-        id: question.id,
-        name: question.name,
-        type: question.type,
-        body: question.body,
-        expected: question.expected,
-        options: question.options,
-        points: question.points,
-        published: !question.published,
-    };
+    return { ...question, published: !question.published };
 }
 
 /**
@@ -127,16 +109,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return {
-        id: oldQuestion.id,
-        name: `Copy of ${oldQuestion.name}`,
-        type: oldQuestion.type,
-        body: oldQuestion.body,
-        expected: oldQuestion.expected,
-        options: oldQuestion.options,
-        points: oldQuestion.points,
-        published: false,
-    };
+    return { ...oldQuestion, id: id, published: !oldQuestion.published };
 }
 
 /**
@@ -147,7 +120,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return new q();
+    return { ...question, options: [...question.options, newOption] };
 }
 
 /**
