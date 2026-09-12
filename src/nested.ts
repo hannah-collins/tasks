@@ -189,7 +189,20 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType,
 ): Question[] {
-    return [];
+    if (newQuestionType !== "multiple_choice_question") {
+        return questions.map(
+            (question: Question): Question =>
+                question.id === targetId ?
+                    { ...question, type: newQuestionType, options: [] }
+                :   question,
+        );
+    }
+    return questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                { ...question, type: newQuestionType }
+            :   question,
+    );
 }
 
 /**
@@ -208,7 +221,26 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    if (targetOptionIndex === -1) {
+        return questions.map(
+            (question: Question): Question =>
+                question.id === targetId ?
+                    { ...question, options: [...question.options, newOption] }
+                :   question,
+        );
+    }
+    return questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                {
+                    ...question,
+                    options: question.options.map(
+                        (option: string, index: number): string =>
+                            index === targetOptionIndex ? newOption : option,
+                    ),
+                }
+            :   question,
+    );
 }
 
 /***
