@@ -32,12 +32,11 @@ export function CycleHoliday(): React.JSX.Element {
         <div>
             <Button onClick={alphabetNext}>Next by Alphabet</Button>
             <Button onClick={yearNext}>Next by Year</Button>
-            <div>Holiday:</div>
-            {holiday === "Rosh Hashana" && <div>🍎🍯</div>}
-            {holiday === "Purim" && <div>🎭</div>}
-            {holiday === "Chanukah" && <div>🕎</div>}
-            {holiday === "Simchat Torah" && <div>📜</div>}
-            {holiday === "Sukkot" && <div>🍋🌿</div>}
+            {holiday === "Rosh Hashana" && <div>Holiday: 🍎🍯</div>}
+            {holiday === "Purim" && <div>Holiday: 🎭</div>}
+            {holiday === "Chanukah" && <div>Holiday: 🕎</div>}
+            {holiday === "Simchat Torah" && <div>Holiday: 📜</div>}
+            {holiday === "Sukkot" && <div>Holiday: 🍋🌿</div>}
         </div>
     );
 }
