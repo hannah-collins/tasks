@@ -31,6 +31,7 @@ export function TwoDice(): React.JSX.Element {
             >
                 Roll Right
             </Button>
+            <div></div>
             <span>{leftDie}</span>
             <span>{rightDie}</span>
             {rightDie === leftDie && rightDie !== 1 && <div>Win!</div>}
