@@ -34,7 +34,8 @@ export function TwoDice(): React.JSX.Element {
             <span>{leftDie}</span>
             <span>{rightDie}</span>
             {rightDie === leftDie && rightDie !== 1 && <div>Win!</div>}
-            {rightDie !== leftDie || (rightDie !== 1 && <div>Win!</div>)}
+            {rightDie !== leftDie && <div>Lose</div>}
+            {rightDie === 1 && <div>Lose</div>}
         </div>
     );
 }
