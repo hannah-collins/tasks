@@ -22,7 +22,7 @@ function App(): React.JSX.Element {
             <hr />
             {/* <TwoDice></TwoDice> */}
             <hr />
-            {/* <ChangeType></ChangeType> */}
+            <ChangeType></ChangeType>
             <hr />
             {/* <CycleHoliday></CycleHoliday> */}
         </div>
