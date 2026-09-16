@@ -8,7 +8,7 @@ export function CycleHoliday(): React.JSX.Element {
         | "Holiday: 🎭"
         | "Holiday: 🕎"
         | "Holiday: 🍋🌿";
-    const [holiday, changeHoliday] = useState<Holiday>("Chanukah");
+    const [holiday, changeHoliday] = useState<Holiday>("Holiday: 🕎");
     function alphabetNext() {
         changeHoliday(
             holiday === "Holiday: 🕎" ? "Holiday: 🎭"
