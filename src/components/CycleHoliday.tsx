@@ -3,40 +3,36 @@ import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): React.JSX.Element {
     type Holiday =
-        | "Rosh Hashana"
-        | "Simchat Torah"
-        | "Purim"
-        | "Chanukah"
-        | "Sukkot";
+        | "Holiday: 🍎🍯"
+        | "Holiday: 📜"
+        | "Holiday: 🎭"
+        | "Holiday: 🕎"
+        | "Holiday: 🍋🌿";
     const [holiday, changeHoliday] = useState<Holiday>("Chanukah");
     function alphabetNext() {
         changeHoliday(
-            holiday === "Chanukah" ? "Purim"
-            : holiday === "Purim" ? "Rosh Hashana"
-            : holiday === "Rosh Hashana" ? "Simchat Torah"
-            : holiday === "Simchat Torah" ? "Sukkot"
-            : "Chanukah",
+            holiday === "Holiday: 🕎" ? "Holiday: 🎭"
+            : holiday === "Holiday: 🎭" ? "Holiday: 🍎🍯"
+            : holiday === "Holiday: 🍎🍯" ? "Holiday: 📜"
+            : holiday === "Holiday: 📜" ? "Holiday: 🍋🌿"
+            : "Holiday: 🕎",
         );
     }
 
     function yearNext() {
         changeHoliday(
-            holiday === "Rosh Hashana" ? "Sukkot"
-            : holiday === "Sukkot" ? "Simchat Torah"
-            : holiday === "Simchat Torah" ? "Chanukah"
-            : holiday === "Chanukah" ? "Purim"
-            : "Rosh Hashana",
+            holiday === "Holiday: 🍎🍯" ? "Holiday: 🍋🌿"
+            : holiday === "Holiday: 🍋🌿" ? "Holiday: 📜"
+            : holiday === "Holiday: 📜" ? "Holiday: 🕎"
+            : holiday === "Holiday: 🕎" ? "Holiday: 🎭"
+            : "Holiday: 🍎🍯",
         );
     }
     return (
         <div>
             <Button onClick={alphabetNext}>Next by Alphabet</Button>
             <Button onClick={yearNext}>Next by Year</Button>
-            {holiday === "Rosh Hashana" && <div>Holiday: 🍎🍯</div>}
-            {holiday === "Purim" && <div>Holiday: 🎭</div>}
-            {holiday === "Chanukah" && <div>Holiday: 🕎</div>}
-            {holiday === "Simchat Torah" && <div>Holiday: 📜</div>}
-            {holiday === "Sukkot" && <div>Holiday: 🍋🌿</div>}
+            {holiday}
         </div>
     );
 }
