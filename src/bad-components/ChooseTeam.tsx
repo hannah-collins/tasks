@@ -14,10 +14,10 @@ export function ChooseTeam(): React.JSX.Element {
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
-    function chooseMember(newMember) {
-        if (!team.includes(newMember)) {
-            setTeam([...team, newMember]);
-        }
+    function chooseMember(newMember: string) {
+        !team.includes(newMember) ?
+            setTeam([...team, newMember])
+        :   setTeam([...team]);
     }
 
     function clearTeam() {
