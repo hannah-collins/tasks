@@ -38,7 +38,7 @@ export function ChangeColor(): React.JSX.Element {
             )}
             <div>
                 You chose{" "}
-                <span data-testid="coloredbox" style={{ color: color }}>
+                <span data-testid="colored-box" style={{ color: color }}>
                     {color}
                 </span>
             </div>
