@@ -36,6 +36,9 @@ export function ChangeColor(): React.JSX.Element {
                 (colorValue: string): React.JSX.Element =>
                     renderOption(colorValue),
             )}
+            <span data-testid="coloredbox" style={{ color: color }}>
+                You chose {color}
+            </span>
         </div>
     );
 }
