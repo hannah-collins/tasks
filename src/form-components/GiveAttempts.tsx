@@ -7,7 +7,9 @@ export function GiveAttempts(): React.JSX.Element {
 
     function setRequest(event: React.ChangeEvent<HTMLInputElement>) {
         const value = Number(event.target.value);
-        Number.isNaN(value) ? changeRequest(parseInt(event.target.value));
+        Number.isNaN(value) ?
+            changeRequest(parseInt(event.target.value))
+        :   changeRequest(request + 0);
     }
 
     function useAttempt() {
