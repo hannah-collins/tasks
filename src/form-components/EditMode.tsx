@@ -24,7 +24,7 @@ export function EditMode(): React.JSX.Element {
             <Form.Check
                 type="switch"
                 id="edit-mode"
-                label="Happy?"
+                label="Edit Mode?"
                 checked={editMode}
                 onChange={updateMode}
             />
