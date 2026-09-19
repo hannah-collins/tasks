@@ -30,7 +30,7 @@ export function GiveAttempts(): React.JSX.Element {
                     onChange={setRequest}
                 />
             </Form.Group>
-            <Button onClick={useAttempt} disabled={attempts !== 0}>
+            <Button onClick={useAttempt} disabled={attempts === 0}>
                 use
             </Button>
             <Button onClick={gainAttempt}>gain</Button>
