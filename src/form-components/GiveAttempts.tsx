@@ -12,19 +12,23 @@ export function GiveAttempts(): React.JSX.Element {
     function gainAttempt() {
         changeAttempts(attempts + request);
     }
+
+    function setRequest(event: React.ChangeEvent<HTMLInputElement>) {
+        const parsedValue = Number(event.target.value);
+        !Number.isNaN(parsedValue) ?
+            changeRequest(parsedValue)
+        :   changeRequest(0);
+    }
+
     return (
         <div>
             <h3>Give Attempts</h3>
-            <Form.Group controlId="formMovieReleased">
+            <Form.Group controlId="giveAttepts">
                 <Form.Label>Request Attemps:</Form.Label>
                 <Form.Control
                     type="number"
                     value={request}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        Number.isNaN(parseInt(event.target.value)) ?
-                            changeRequest(parseInt(event.target.value))
-                        :   changeRequest(request + 0);
-                    }}
+                    onChange={setRequest}
                 />
             </Form.Group>
             <Button onClick={useAttempt} disabled={attempts === 0}>
