@@ -23,7 +23,9 @@ export function ChangeColor(): React.JSX.Element {
                     setColor(e.target.value);
                 }}
                 id={"check: " + colorValue}
-                label={<span style={{ color: colorValue }}>{colorValue}</span>}
+                label={
+                    <span style={{ background: colorValue }}>{colorValue}</span>
+                }
                 value={colorValue}
                 checked={color === colorValue}
             />
@@ -38,7 +40,7 @@ export function ChangeColor(): React.JSX.Element {
             )}
             <div>
                 You chose{" "}
-                <span data-testid="colored-box" style={{ color: color }}>
+                <span data-testid="colored-box" style={{ background: color }}>
                     {color}
                 </span>
             </div>
