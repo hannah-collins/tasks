@@ -5,12 +5,6 @@ export function GiveAttempts(): React.JSX.Element {
     const [attempts, changeAttempts] = useState<number>(3);
     const [request, changeRequest] = useState<number>(0);
 
-    function setRequest(event: React.ChangeEvent<HTMLInputElement>) {
-        Number.isNaN(parseInt(event.target.value)) ?
-            changeRequest(parseInt(event.target.value))
-        :   changeRequest(request + 0);
-    }
-
     function useAttempt() {
         changeAttempts(attempts - 1);
     }
@@ -26,7 +20,11 @@ export function GiveAttempts(): React.JSX.Element {
                 <Form.Control
                     type="number"
                     value={request}
-                    onChange={setRequest}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        Number.isNaN(parseInt(event.target.value)) ?
+                            changeRequest(parseInt(event.target.value))
+                        :   changeRequest(request + 0);
+                    }}
                 />
             </Form.Group>
             <Button onClick={useAttempt} disabled={attempts === 0}>
